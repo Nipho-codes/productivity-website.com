@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductiveFlow - Task & Goal Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Project You<span>2.0</span></a>
+        
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#goals">Goals</a>
+            <a href="#progress">Progress</a>
+            <a href="#analytics">Analytics</a>
+        </nav>
+        
+        <button class="gradient-btn">Get Started</button>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>Master Your <span>Productivity</span></h1>
+            <h3>Track, Achieve, Succeed</h3>
+            <p>Transform your productivity with our all-in-one task management and goal tracking system. Stay organized, motivated, and achieve your dreams.</p>
+            
+            <div class="btn-group">
+                <a href="#tasks" class="btn">Start Tracking</a>
+                <a href="#goals" class="btn">Set Goals</a>
+            </div>
+        </div>
+        
+        <div class="home-img">
+            <img src="productivity.jpg" >
+        </div>
+    </section>
+
+    <!-- Tasks Section -->
+    <section id="tasks" class="about">
+        <div class="about-content">
+            <h2>Daily <span>Tasks</span></h2>
+            <p>Manage your daily tasks efficiently. Stay focused on what matters most and track your completion progress throughout the day.</p>
+            
+            <div class="task-input-section">
+                <input type="text" id="taskInput" placeholder="What needs to be done today?" maxlength="100">
+                <button id="addTaskBtn" class="btn">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </div>
+            
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="todayCompleted">0</div>
+                    <div class="stat-label">Today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="weekCompleted">0</div>
+                    <div class="stat-label">This Week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="monthCompleted">0</div>
+                    <div class="stat-label">This Month</div>
+                </div>
+            </div>
+            
+            <div class="task-list" id="taskList">
+                <!-- Tasks will be added here dynamically -->
+            </div>
+            
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon"><i class="fas fa-tasks"></i></div>
+                <h3>No tasks for today</h3>
+                <p>Add your first task to start tracking your progress!</p>
+            </div>
+        </div>
+        
+        <div class="about-img">
+            <img src="running man.jpg">
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="skills">
+        <div class="skills-container">
+            <h2 class="heading">Your <span>Goals</span></h2>
+            
+            <div class="goals-header">
+                <button id="addGoalBtn" class="btn">
+                    <i class="fas fa-plus"></i> New Goal
+                </button>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Short Term Goals -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-flag"></i> Short Term</h3>
+                    <div class="goals-list" id="shortTermGoals">
+                        <!-- Goals will be added here -->
+                    </div>
+                </div>
+                
+                <!-- Long Term Goals -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-mountain"></i> Long Term</h3>
+                    <div class="goals-list" id="longTermGoals">
+                        <!-- Goals will be added here -->
+                    </div>
+                </div>
+                
+                <!-- Lifetime Goals -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-star"></i> Lifetime</h3>
+                    <div class="goals-list" id="lifetimeGoals">
+                        <!-- Goals will be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="projects">
+        <h2 class="heading">Progress <span>Analytics</span></h2>
+        
+        <div class="progress-grid">
+            <div class="project-card">
+                <div class="progress-circle">
+                    <div class="circle-progress" id="dailyProgress">0%</div>
+                </div>
+                <h3>Daily Progress</h3>
+                <p>Track your completion rate for today's tasks and stay motivated to finish strong.</p>
+                <div class="btn view-details" data-type="daily">View Details</div>
+            </div>
+            
+            <div class="project-card">
+                <div class="progress-circle">
+                    <div class="circle-progress" id="weeklyProgress">0%</div>
+                </div>
+                <h3>Weekly Overview</h3>
+                <p>See how you're progressing through the week and maintain consistent productivity.</p>
+                <div class="btn view-details" data-type="weekly">View Details</div>
+            </div>
+            
+            <div class="project-card">
+                <div class="progress-circle">
+                    <div class="circle-progress" id="monthlyProgress">0%</div>
+                </div>
+                <h3>Monthly Trends</h3>
+                <p>Analyze your monthly performance and identify patterns in your productivity.</p>
+                <div class="btn view-details" data-type="monthly">View Details</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="analytics" class="contact">
+        <h2 class="heading">Detailed <span>Analytics</span></h2>
+        
+        <div class="analytics-content">
+            <div class="input-group">
+                <div class="input-box">
+                    <h3>Productivity Stats</h3>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span>Total Tasks Completed:</span>
+                            <span id="totalCompleted">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Success Rate:</span>
+                            <span id="successRate">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Current Streak:</span>
+                            <span id="currentStreak">0 days</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Best Streak:</span>
+                            <span id="bestStreak">0 days</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-box">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="btn" onclick="app.exportData()">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                        <button class="btn" onclick="app.clearCompleted()">
+                            <i class="fas fa-trash"></i> Clear Completed
+                        </button>
+                        <button class="btn" onclick="app.resetData()">
+                            <i class="fas fa-redo"></i> Reset All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tasks">Tasks</a></li>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#progress">Progress</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+        </ul>
+        
+        <a href="#home" class="back-to-top">
+            <i class="fas fa-arrow-up"></i> Back to Top
+        </a>
+        
+        <p class="copyright">© 2025 ProductiveFlow. All rights reserved.</p>
+    </footer>
+
+    <!-- Goal Modal -->
+    <div id="goalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Goal</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group-2">
+                    <input type="text" id="goalTitle" placeholder="Goal Title" class="input-field">
+                    <select id="goalCategory" class="input-field">
+                        <option value="short">Short Term (This Week)</option>
+                        <option value="long">Long Term (This Year)</option>
+                        <option value="lifetime">Lifetime</option>
+                    </select>
+                    <textarea id="goalDescription" placeholder="Goal Description (Optional)" class="input-field"></textarea>
+                    <input type="date" id="goalDeadline" class="input-field">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveGoalBtn" class="btn">Save Goal</button>
+                <button id="cancelGoalBtn" class="btn" style="background: black; color: var(--main-color); border: 2px solid var(--main-color);">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Details Modal -->
+    <div id="analyticsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="analyticsModalTitle">Analytics Details</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="analyticsContent">
+                    <!-- Content will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
